@@ -25,6 +25,8 @@
     justify-content: center; /* Horizontally center all buttons */
     align-items: center; /* Vertically center all buttons */
     flex-direction: column; /* Align buttons vertically */
+    margin-top: 25%;
+    margin-bottom: 25%;
 }
 
 .forward-buttons {

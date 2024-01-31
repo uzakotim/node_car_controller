@@ -11,12 +11,32 @@ import {
 import { FaCircleStop } from "react-icons/fa6";
 
 function ArrowButton({ direction, message }) {
+    // frontend.js
     const handleClick = () => {
-        // Send message over UDP to localhost:8080
-        // You can use fetch or axios to send the message to the backend
-        // For simplicity, I'm logging the message to the console
-        console.log(`Sending message "${message}" for ${direction}`);
+        fetch("http://127.0.0.1:3030/send-message", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log("Message sent successfully:", data);
+            })
+            .catch((error) => {
+                console.error(
+                    "There was a problem sending the message:",
+                    error
+                );
+            });
     };
+
     const iconStyle = {
         width: "80%", // Adjust the icon size to fill most of the button
         height: "80%", // Adjust the icon size to fill most of the button
