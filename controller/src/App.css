@@ -11,11 +11,62 @@
     margin: 10px;
     font-size: 16px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Explicitly set the background color to black */
+    color: black; /* Set text color to ensure readability */
+    border: none;
+    border-radius: 8px;
 }
 
-/* Add additional styling for different arrow directions */
-.left-forward {
-    /* Add styles for left-forward arrow */
+.button-container {
+    display: flex;
+    justify-content: center; /* Horizontally center all buttons */
+    align-items: center; /* Vertically center all buttons */
+    flex-direction: column; /* Align buttons vertically */
 }
 
-/* Add styles for other arrow directions */
+.forward-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backward-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust the margin to separate forward and backward buttons */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .button-container {
+        flex-direction: column; /* Change to horizontal layout for smaller screens */
+    }
+
+    .forward-buttons,
+    .backward-buttons {
+        margin-top: 10px; /* Reduce margin for smaller screens */
+    }
+
+    .backward-buttons {
+        margin-top: 10px; /* Reduce margin for smaller screens */
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .button-container {
+        flex-direction: column; /* Change to horizontal layout for landscape orientation */
+    }
+
+    .forward-buttons,
+    .backward-buttons {
+        margin-top: 10px; /* Reduce margin for landscape orientation */
+    }
+
+    .backward-buttons {
+        margin-top: 10px; /* Reduce margin for landscape orientation */
+    }
+}

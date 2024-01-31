@@ -8,6 +8,7 @@ import {
     PiArrowSquareUpLeftFill,
     PiArrowSquareUpRightFill,
 } from "react-icons/pi";
+import { FaCircleStop } from "react-icons/fa6";
 
 function ArrowButton({ direction, message }) {
     const handleClick = () => {
@@ -28,6 +29,7 @@ function ArrowButton({ direction, message }) {
         "left-backward": <PiArrowSquareDownLeftFill style={iconStyle} />,
         backward: <PiArrowSquareDownFill style={iconStyle} />,
         "right-backward": <PiArrowSquareDownRightFill style={iconStyle} />,
+        stop: <FaCircleStop style={iconStyle} />,
     };
     // Define styles for the button and icon
     const buttonStyle = {
