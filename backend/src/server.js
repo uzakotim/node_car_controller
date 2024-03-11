@@ -35,17 +35,3 @@ app.get("/send-message", (req, res) => {
 app.listen(3030, () => {
     console.log("Server is running on port 3030");
 });
-
-// UDP server to listen for incoming messages (if needed)
-// This server sends messages and does not need to listen for them.
-// Therefore, this part is optional.
-/*
-server.on('message', (msg, rinfo) => {
-    console.log(`Received message: ${msg.toString()} from ${rinfo.address}:${rinfo.port}`);
-});
-
-server.bind(backendPort);
-*/
-// pubber.js
-
-setInterval(function () {}, 500);
