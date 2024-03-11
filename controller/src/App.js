@@ -4,10 +4,19 @@ import "./App.css";
 import ArrowButton from "./ArrowButton";
 
 function App() {
-    const [address, setAddress] = React.useState("192.168.1.160");
+    const [address, setAddress] = React.useState("");
     return (
         <div className="App">
             <div className="button-container">
+                {/* Create div that will take input from user and store it as address variable */}
+                <div className="input-container">
+                    <input
+                        type="text"
+                        placeholder="Robot's IP: 0.0.0.0"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                    />
+                </div>
                 <div className="forward-buttons">
                     <ArrowButton
                         direction="left-forward"
@@ -49,15 +58,6 @@ function App() {
                         address={address}
                     />
                 </div>
-            </div>
-            {/* Create div that will take input from user and store it as address variable */}
-            <div>
-                <input
-                    type="text"
-                    placeholder="0.0.0.0"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                />
             </div>
         </div>
     );
