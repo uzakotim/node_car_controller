@@ -8,7 +8,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "pm2": "^5.3.1",
-    "zeromq": "^6.0.0-beta.19"
+    "zeromq": "5"
   },
   "scripts": {
     "start": "node src/server.js"
