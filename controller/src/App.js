@@ -4,22 +4,60 @@ import "./App.css";
 import ArrowButton from "./ArrowButton";
 
 function App() {
+    const [address, setAddress] = React.useState("192.168.1.160");
     return (
         <div className="App">
             <div className="button-container">
                 <div className="forward-buttons">
-                    <ArrowButton direction="left-forward" message="q" />
-                    <ArrowButton direction="forward" message="w" />
-                    <ArrowButton direction="right-forward" message="e" />
+                    <ArrowButton
+                        direction="left-forward"
+                        message="q"
+                        address={address}
+                    />
+                    <ArrowButton
+                        direction="forward"
+                        message="w"
+                        address={address}
+                    />
+                    <ArrowButton
+                        direction="right-forward"
+                        message="e"
+                        address={address}
+                    />
                 </div>
                 <div className="backward-buttons">
-                    <ArrowButton direction="left-backward" message="a" />
-                    <ArrowButton direction="backward" message="s" />
-                    <ArrowButton direction="right-backward" message="d" />
+                    <ArrowButton
+                        direction="left-backward"
+                        message="a"
+                        address={address}
+                    />
+                    <ArrowButton
+                        direction="backward"
+                        message="s"
+                        address={address}
+                    />
+                    <ArrowButton
+                        direction="right-backward"
+                        message="d"
+                        address={address}
+                    />
                 </div>
                 <div className="additional-buttons">
-                    <ArrowButton direction="stop" message="k" />
+                    <ArrowButton
+                        direction="stop"
+                        message="k"
+                        address={address}
+                    />
                 </div>
+            </div>
+            {/* Create div that will take input from user and store it as address variable */}
+            <div>
+                <input
+                    type="text"
+                    placeholder="0.0.0.0"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                />
             </div>
         </div>
     );

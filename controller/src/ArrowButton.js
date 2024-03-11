@@ -10,10 +10,10 @@ import {
 } from "react-icons/pi";
 import { FaCircleStop } from "react-icons/fa6";
 
-function ArrowButton({ direction, message }) {
+function ArrowButton({ direction, message, address }) {
     // frontend.js
     const handleClick = () => {
-        fetch("http://127.0.0.1:3030/send-message", {
+        fetch("http://" + address + ":3030/send-message", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
