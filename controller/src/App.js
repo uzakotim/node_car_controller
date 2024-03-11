@@ -4,7 +4,7 @@ import "./App.css";
 import ArrowButton from "./ArrowButton";
 
 function App() {
-    const [address, setAddress] = React.useState("");
+    const [address, setAddress] = React.useState(window.location.hostname);
     return (
         <div className="App">
             <div className="button-container">
@@ -12,7 +12,7 @@ function App() {
                 <div className="input-container">
                     <input
                         type="text"
-                        placeholder="Robot's IP: 0.0.0.0"
+                        placeholder={address}
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                     />
