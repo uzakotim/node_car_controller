@@ -2,33 +2,28 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors"); // Import cors middleware
-var zmq = require("zeromq"),
-    sock = zmq.socket("pub");
+const zmq = require("zeromq");
 
 const app = express();
-// Define ZMQ publisher details
-console.log("Publisher bound to port 8081");
-const PUBLISHER_ENDPOINT = "tcp://127.0.0.1:8081"; // Change to your desired endpoint
-// const sock = new zmq.Publisher();
 
-sock.bindSync(PUBLISHER_ENDPOINT);
-// sock.bind(PUBLISHER_ENDPOINT);
-// console.log("Publisher bound to port 8081");
+// Define ZMQ publisher details
+const PUBLISHER_ENDPOINT = "tcp://127.0.0.1:8081"; // Change to your desired endpoint
+const sock = new zmq.Publisher();
+sock.bind(PUBLISHER_ENDPOINT);
+console.log("Publisher bound to port 8081");
 
 // Middleware to enable CORS
 app.use(cors());
-
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
 // Endpoint to receive messages from frontend
-app.get("/send-message", (req, res) => {
+app.post("/send-message", (req, res) => {
     const { message } = req.body;
-    // console.log("Received message:", message);
-    // sock.send(message);
-    console.log("sending a multipart message envelope");
+    console.log("Received message:", message);
     sock.send(message);
-    res.send("Message published via ZeroMQs");
+    // Send response back to frontend
+    res.send({ message: "Message sent successfully" });
 });
 
 // Start the Express server
