@@ -2,11 +2,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors"); // Import cors middleware
-const dgram = require("dgram");
+const zmq = require("zeromq");
 
 const app = express();
-const server = dgram.createSocket("udp4");
+// Define ZMQ publisher details
+const PUBLISHER_ENDPOINT = "tcp://127.0.0.1:8081"; // Change to your desired endpoint
+const sock = new zmq.Publisher();
 
+sock.bind(PUBLISHER_ENDPOINT);
+console.log("Publisher bound to port 8081");
 // Middleware to enable CORS
 app.use(cors());
 
@@ -16,17 +20,9 @@ app.use(bodyParser.json());
 // Endpoint to receive messages from frontend
 app.post("/send-message", (req, res) => {
     const { message } = req.body;
-
-    // Send the message over UDP
-    server.send(message, 0, message.length, 8080, "localhost", (err) => {
-        if (err) {
-            console.error("Error sending message:", err);
-            res.status(500).json({ error: "Error sending message" });
-        } else {
-            console.log(`Message sent successfully: ${message}`);
-            res.json({ success: true });
-        }
-    });
+    console.log("Received message:", message);
+    sock.send(message);
+    res.send("Message published via ZeroMQs");
 });
 
 // Start the Express server
