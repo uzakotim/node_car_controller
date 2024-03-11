@@ -22,7 +22,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Endpoint to receive messages from frontend
-app.post("/send-message", (req, res) => {
+app.get("/send-message", (req, res) => {
     const { message } = req.body;
     // console.log("Received message:", message);
     // sock.send(message);
