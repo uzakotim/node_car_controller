@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.post("/send-message", (req, res) => {
     const { message } = req.body;
     console.log("Received message:", message);
-    // sock.send(message);
+    sock.send(message);
     // Send response back to frontend
     res.send({ message: "Message sent successfully" });
 });
