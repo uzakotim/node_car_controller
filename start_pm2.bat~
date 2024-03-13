@@ -1,0 +1,4 @@
+@echo off
+pm2 start C:\Users\user\git\node_car_controller\ecosystem.config.js
+REM timeout /t 1 /nobreak >nul
+exit
