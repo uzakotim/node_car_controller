@@ -6,7 +6,7 @@ module.exports = {
         },
         {
             name: "frontend",
-            script: "./controller/src/controller.js",
+            script: "./frontend/src/controller.js",
         },
     ],
 };
