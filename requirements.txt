@@ -1,5 +1,11 @@
+sudo dnf install nodejs
 sudo dnf install eigen3-devel
 sudo dnf install boost-devel
 sudo dnf install zeromq-devel
 sudo dnf install cppzmq-devel
 sudo dnf install gcc-c++
+sudo npm -g install pm2
+sudo npm -g install yarn
+sudo usermod -a -G dialout $USER
+sudo chmod a+rw /dev/ttyUSB0
+sudo chmod a+rw /dev/ttyUSB1
