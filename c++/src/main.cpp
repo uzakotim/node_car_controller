@@ -14,14 +14,9 @@
 #include <Eigen/Dense>
 #include <kalman.h>
 #include <zmq.hpp>
+#include <config.h>
 
-#define ULTRASOUND_SENSOR_BACK_THRESHOLD 70
-#define ULTRASOUND_SENSOR_FRONT_THRESHOLD 70
-#define DEBUG true
-#define SPEED_TRANSLATION 255
-#define SPEED_ROTATION 255
 bool stop_threads = false;
-
 std::string address = "127.0.0.1";
 std::string port = "8081";
 char cur = 'k';
