@@ -1,5 +1,4 @@
 Eigen3-devel
 boost-devel
 zeromq-devel
-build-essential
-sudo dnf groupinstall "Development Tools" "Development Libraries"
+build-essential: sudo dnf install gcc-c++
