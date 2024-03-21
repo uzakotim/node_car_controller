@@ -1,0 +1,3 @@
+/Users/uzakotim/git/node_car_controller/c++/build/CMakeFiles/run_me.dir
+/Users/uzakotim/git/node_car_controller/c++/build/CMakeFiles/edit_cache.dir
+/Users/uzakotim/git/node_car_controller/c++/build/CMakeFiles/rebuild_cache.dir

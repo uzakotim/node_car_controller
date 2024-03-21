@@ -10,7 +10,7 @@ module.exports = {
         },
         {
             name: "starter",
-            script: "../featsion/c++/build/run_me",
+            script: "./c++/build/run_me",
             exec_interpreter: "none",
             exec_mode: "fork_mode",
         },
